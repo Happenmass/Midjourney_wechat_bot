@@ -6,20 +6,20 @@
 
 ```mermaid
 sequenceDiagram
-    participant WorkTool微信机器人服务
-    participant 图床中转
+    participant WorkTool
+    participant 图床
     participant APIServer
     participant DiscordAPI
 
-    WorkTool微信机器人服务 ->> APIServer : 请求接口触发任务
+    WorkTool->>APIServer: 请求接口触发任务
     APIServer->>APIServer: 放入任务队列
     APIServer->>DiscordAPI: 调接口触发绘画任务
-    APIServer-->>WorkTool微信机器人服务: 返回是否触发成功
+    APIServer-->>WorkTool: 返回是否触发成功
 
     DiscordAPI->>DiscordAPI: 触发Midjourney bot绘画任务
     DiscordAPI->>DiscordAPI: 监听MidJourney bot消息
-    DiscordAPI-->>图床中转: 返回监听实时消息
-    图床中转 -->>WorkTool微信机器人服务： 将生成结果发送到任务发起用户
+    DiscordAPI -->>图床: 返回监听实时消息
+    图床 -->WorkTool: 将生成结果发送到任务发起用户
     DiscordAPI-->>APIServer: 清除队列任务
 ```
 
@@ -178,6 +178,7 @@ last_type 记录了用户上一次的生成结果，避免使用U指令后messag
 - [x] 管理用户提交的数量
 - [x] 管理是否允许用户私聊
 
+## 我们搭建了一个免费的机器人供大家试用，扫码后机器人会自动通过请求，每个用户默认vip用户，可以直接私聊体验，也可以加群交流技术问题
 
-![我们搭建了一个免费的机器人供大家试用，扫码后机器人会自动通过请求，每个用户默认vip用户，可以直接私聊体验，也可以加群交流技术问题](https://github.com/Happenmass/Imagestore/blob/main/1.jpeg)
+![](https://github.com/Happenmass/Imagestore/blob/main/1.jpeg)
 ## enjoy it
