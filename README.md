@@ -154,21 +154,24 @@ curl -X 'POST' \
 ### 管理用户  cetification.json
 ```json
 {"0xeo": {"limits": 10, "last_message_id": "", "last_meassage_hash": ""}}
+```
 0xeo —— 用户备注名
 limits —— 用户剩余次数
 last_message_id —— 上次生成图像的id
 last_message_hash —— 上次生辰图像的hash
-```
+
 ### 管理vip用户 vip.json
 ```json
 ["0xeo", "1xeo", "..."]
-将vip用户的备注名添加在这里，可以允许用户通过私聊生成图片
 ```
+将vip用户的备注名添加在这里，可以允许用户通过私聊生成图片
+
 ### 其他json status.json
 ```json
 {"0xeo": {"last_type": ""}, "1xeo": {"last_type": "G"}}
-last_type 记录了用户上一次的生成结果，避免使用U指令后message_id被覆盖，无法继续使用V指令的问题
 ```
+last_type 记录了用户上一次的生成结果，避免使用U指令后message_id被覆盖，无法继续使用V指令的问题
+
 - [x] imagine
 - [x] upscale
 - [x] variation
